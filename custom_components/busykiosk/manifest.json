@@ -1,0 +1,12 @@
+{
+  "domain": "busykiosk",
+  "name": "BusyKiosk",
+  "after_dependencies": ["calendar", "climate", "weather"],
+  "codeowners": [],
+  "config_flow": false,
+  "dependencies": ["http"],
+  "documentation": "https://github.com/busy-app/busybar-firmware/blob/dev/documentation/JavaScript%20Applications.dox.md",
+  "iot_class": "calculated",
+  "requirements": [],
+  "version": "0.1.2"
+}

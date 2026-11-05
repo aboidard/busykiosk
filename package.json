@@ -1,0 +1,30 @@
+{
+  "name": "busykiosk",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Home Assistant dashboard: weather, heating, waste collection",
+  "author": "Arnaud",
+  "type": "module",
+  "scripts": {
+    "postinstall": "node tools/patch-busy-cli.mjs",
+    "assets": "node --experimental-strip-types tools/gen-assets.mjs",
+    "check": "node --experimental-strip-types tools/check-layout.mjs",
+    "typecheck": "tsc",
+    "build": "busy-cli build",
+    "app:install": "busy-cli app install",
+    "app:uninstall": "busy-cli app uninstall",
+    "app:run": "busy-cli app run",
+    "app:stop": "busy-cli app stop"
+  },
+  "engines": {
+    "node": ">=24 <26"
+  },
+  "devDependencies": {
+    "@busy-app/cli": "^0.6.0",
+    "typescript": "~6.0.3",
+    "vite": "8.1.4"
+  },
+  "dependencies": {
+    "@busy-app/busy-lib": "^0.21.1"
+  }
+}

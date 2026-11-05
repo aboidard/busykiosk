@@ -1,0 +1,35 @@
+# Add this to Home Assistant's configuration.yaml, adapt the entity ids, then restart Home Assistant.
+# Every key is optional: an endpoint whose entity is not set answers 404.
+
+busykiosk:
+  # Page 1 - weather (condition, today's min/max from weather.get_forecasts)
+  weather: weather.maison
+
+  # Page 2 - heating
+  thermostat: climate.thermostat
+  # Living room temperature (sensor.*, or a climate.* entity's current_temperature).
+  # Without it, the thermostat's own reading is used.
+  living_temperature: sensor.salon_temperature
+  # Bedroom temperature: here the A/C's current_temperature.
+  bedroom_temperature: climate.chambre_clim
+  # hvac_mode used when the bar turns the thermostat on (falls back to the first non-off mode).
+  heat_mode: heat
+  # Setpoint shown when the thermostat is off and has never reported one.
+  default_setpoint: 19
+
+  # Page 3 - waste collection
+  waste_calendar: calendar.grand_paris_seine_et_oise
+  waste_days: 30
+  # Icon on the bar <- text found in the calendar event summary (case and accents ignored).
+  # Order breaks ties. Icon keys: menagers, emballages, verre, verts, encombrants.
+  waste_types:
+    - key: menagers
+      match: ordures ménagères
+    - key: emballages
+      match: emballages
+    - key: verre
+      match: verre
+    - key: verts
+      match: déchets verts
+    - key: encombrants
+      match: encombrants
